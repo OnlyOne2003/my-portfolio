@@ -130,6 +130,7 @@ body::before {
   @apply bg-clip-text text-transparent;
   background-size: 200% auto;
   animation: gradient 3s linear infinite;
+  padding-bottom: 0.15em;
 }
 
 /* Card hover effect */

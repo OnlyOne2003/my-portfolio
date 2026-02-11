@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Mail, Phone, MapPin, Send, Github, Instagram, Linkedin } from 'lucide-react'
+import { Mail, MapPin, Send, Github } from 'lucide-react'
 
 const contactInfo = [
   {
@@ -11,12 +11,6 @@ const contactInfo = [
     label: 'ایمیل',
     value: 'yeganeh.mousavi.2003@gmail.com',
     href: 'mailto:yeganeh.mousavi.2003@gmail.com',
-  },
-  {
-    icon: Phone,
-    label: 'تلفن',
-    value: '۰۹۱۳۴۵۸۶۵۱۶',
-    href: 'tel:+989134586516',
   },
   {
     icon: MapPin,
@@ -28,7 +22,6 @@ const contactInfo = [
 
 const socialLinks = [
   { icon: Github, label: 'GitHub', href: 'https://github.com/OnlyOne2003', color: 'hover:text-gray-300' },
-  { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/ysm23sh', color: 'hover:text-pink-400' },
   { icon: Mail, label: 'Email', href: 'mailto:yeganeh.mousavi.2003@gmail.com', color: 'hover:text-blue-400' },
 ]
 

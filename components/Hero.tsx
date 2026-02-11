@@ -1,13 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, Phone, Instagram, FileDown } from 'lucide-react'
+import { Github, Mail, FileDown } from 'lucide-react'
 
 const socialLinks = [
   { icon: Github, href: 'https://github.com/OnlyOne2003', label: 'GitHub' },
-  { icon: Instagram, href: 'https://instagram.com/ysm23sh', label: 'Instagram' },
   { icon: Mail, href: 'mailto:yeganeh.mousavi.2003@gmail.com', label: 'Email' },
-  { icon: Phone, href: 'tel:+989134586516', label: 'Phone' },
 ]
 
 export default function Hero() {
