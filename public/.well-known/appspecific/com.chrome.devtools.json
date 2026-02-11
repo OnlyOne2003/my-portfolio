@@ -1,0 +1,6 @@
+{
+  "name": "com.chrome.devtools",
+  "version": "1.0",
+  "description": "Local devtools probe response to avoid 500 errors",
+  "supported": []
+}

@@ -1,0 +1,44 @@
+/* 
+ * فونت کلمه - روش CSS (اختیاری)
+ * توجه: در Next.js بهتر است از localFont در layout.tsx استفاده کنید
+ * این فایل فقط برای مرجع است
+ */
+
+@font-face {
+  font-family: 'Kalameh';
+  src: url('/fonts/KALAMEH-THIN.TTF') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kalameh';
+  src: url('/fonts/KALAMEH-REGULAR.TTF') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kalameh';
+  src: url('/fonts/KALAMEH-BOLD.TTF') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kalameh';
+  src: url('/fonts/KALAMEH-BLACK.TTF') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 
+ * برای استفاده:
+ * body {
+ *   font-family: 'Kalameh', Tahoma, Arial, sans-serif;
+ * }
+ */
