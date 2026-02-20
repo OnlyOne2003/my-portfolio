@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Github, Mail, FileDown } from 'lucide-react'
+import SkillsCube from './SkillsCube'
 
 const socialLinks = [
   { icon: Github, href: 'https://github.com/OnlyOne2003', label: 'GitHub' },
@@ -43,18 +44,34 @@ export default function Hero() {
           </motion.h1>
 
           {/* Description */}
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="mb-12 flex flex-col items-center justify-center"
           >
-            متخصص در ساخت{' '}
-            <span className="text-persian-400 font-semibold">رابط‌های کاربری</span>{' '}
-            زیبا و{' '}
-            <span className="text-turquoise-400 font-semibold">واکنش‌گرا</span>{' '}
-            با React، React Native و Next.js
-          </motion.p>
+            <div className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-4">
+                <span>ساپورتر</span>
+                <motion.div
+                  animate={{ rotateY: 360 }}
+                  transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+                  style={{ perspective: '1200px' }}
+                  className="inline-block"
+                >
+                  <SkillsCube />
+                </motion.div>
+                <span>برای ساخت</span>
+              </div>
+              <div className="text-center">
+                <span className="text-persian-400 font-semibold">رابط‌های کاربری</span>{' '}
+                زیبا و{' '}
+                <span className="text-turquoise-400 font-semibold">واکنش‌گرا</span>{' '}
+                <br className="hidden md:block" />
+                با React، React Native و Next.js
+              </div>
+            </div>
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
@@ -71,7 +88,7 @@ export default function Hero() {
             >
               مشاهده پروژه‌ها
             </motion.a>
-            
+
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05 }}
