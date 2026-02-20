@@ -121,7 +121,7 @@ export default function Experience() {
                   className={`flex items-center gap-8 ${isEven ? 'md:flex-row-reverse' : ''}`}
                 >
                   {/* Content */}
-                  <div className={`flex-1 ${isEven ? 'md:text-left' : 'md:text-right'}`}>
+                  <div className="flex-1 text-right">
                     <div className="glass-strong rounded-3xl p-6 md:p-8 hover:scale-105 transition-transform">
                       {/* Header */}
                       <div className="flex items-start justify-between mb-4 flex-wrap gap-3">
