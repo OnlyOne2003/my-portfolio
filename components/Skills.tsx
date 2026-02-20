@@ -4,27 +4,29 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 const skills = [
-  { name: 'JavaScript', level: 90, color: 'from-yellow-500 to-yellow-600' },
-  { name: 'React', level: 95, color: 'from-blue-500 to-cyan-500' },
-  { name: 'React Native', level: 90, color: 'from-blue-600 to-purple-600' },
-  { name: 'Next.js', level: 85, color: 'from-gray-700 to-gray-900' },
-  { name: 'TypeScript', level: 80, color: 'from-blue-600 to-blue-700' },
-  { name: 'Tailwind CSS', level: 95, color: 'from-cyan-500 to-blue-500' },
-  { name: 'HTML/CSS', level: 95, color: 'from-orange-500 to-red-500' },
-  { name: 'PWA', level: 85, color: 'from-purple-500 to-pink-500' },
-  { name: 'Expo', level: 88, color: 'from-indigo-500 to-purple-600' },
-  { name: 'Git/GitHub', level: 85, color: 'from-gray-700 to-gray-800' },
+  { name: 'JavaScript', level: 100, color: 'from-yellow-500 to-yellow-600' },
+  { name: 'React.js', level: 100, color: 'from-blue-500 to-cyan-500' },
+  { name: 'React Native', level: 100, color: 'from-blue-600 to-purple-600' },
+  { name: 'Next.js', level: 100, color: 'from-gray-500 to-gray-700' },
+  { name: 'TypeScript', level: 100, color: 'from-blue-600 to-blue-700' },
+  { name: 'HTML5 & CSS3', level: 100, color: 'from-orange-500 to-red-500' },
+  { name: 'Tailwind CSS', level: 100, color: 'from-cyan-500 to-blue-500' },
+  { name: 'Redux Toolkit', level: 100, color: 'from-purple-600 to-purple-800' },
+  { name: 'REST API', level: 100, color: 'from-green-500 to-emerald-600' },
+  { name: 'Git & GitHub', level: 100, color: 'from-gray-600 to-gray-800' },
+  { name: 'Expo', level: 100, color: 'from-indigo-500 to-purple-600' },
+  { name: 'PWA', level: 100, color: 'from-pink-500 to-rose-500' },
 ]
 
 const tools = [
   'VS Code',
   'Figma',
   'Postman',
-  'Redux',
   'Axios',
   'Framer Motion',
-  'REST API',
   'Responsive Design',
+  'Agile / Scrum',
+  'Zustand',
 ]
 
 export default function Skills() {
