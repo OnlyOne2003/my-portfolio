@@ -6,6 +6,16 @@ import { Calendar, Code, Smartphone } from 'lucide-react'
 
 const experiences = [
   {
+    title: 'شهرداری',
+    role: 'توسعه‌دهنده فرانت‌اند',
+    period: 'آذر ۱۴۰۴',
+    type: 'وب اپلیکیشن',
+    tech: ['Next.js'],
+    description: 'سیستم فروش بلیط خانه‌های تاریخی شهرداری. طراحی و پیاده‌سازی رابط کاربری سیستم بلیط‌فروشی آنلاین.',
+    icon: Code,
+    color: 'from-rose-500 to-red-500',
+  },
+  {
     title: 'دیجی پایه',
     role: 'توسعه‌دهنده فول‌استک',
     period: 'شهریور ۱۴۰۴',
@@ -111,7 +121,7 @@ export default function Experience() {
                   className={`flex items-center gap-8 ${isEven ? 'md:flex-row-reverse' : ''}`}
                 >
                   {/* Content */}
-                  <div className={`flex-1 ${isEven ? 'md:text-left' : 'md:text-right'}`}>
+                  <div className="flex-1 text-right">
                     <div className="glass-strong rounded-3xl p-6 md:p-8 hover:scale-105 transition-transform">
                       {/* Header */}
                       <div className="flex items-start justify-between mb-4 flex-wrap gap-3">
