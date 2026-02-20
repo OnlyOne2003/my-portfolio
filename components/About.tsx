@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer'
 import { useState } from 'react'
 import {
   Calendar, MapPin, GraduationCap, Heart,
-  Users, Lightbulb, Clock, MessageCircle, Zap, RefreshCw,
+  Users, Lightbulb, Search, Zap, BarChart2, RefreshCw, Shield, GitBranch,
   Building2, Briefcase
 } from 'lucide-react'
 
@@ -25,12 +25,14 @@ const interests = [
 ]
 
 const softSkills = [
-  { icon: Users, label: 'کار تیمی', desc: 'تجربه کار در تیم‌های چابک و همکاری موثر با اعضای تیم' },
-  { icon: Lightbulb, label: 'حل مسئله', desc: 'توانایی تحلیل مشکلات پیچیده و یافتن راه‌حل‌های خلاقانه' },
-  { icon: Clock, label: 'مدیریت زمان', desc: 'تحویل پروژه‌ها در موعد مقرر با اولویت‌بندی صحیح وظایف' },
-  { icon: MessageCircle, label: 'ارتباطات', desc: 'برقراری ارتباط موثر با کلاینت‌ها و اعضای تیم' },
+  { icon: Lightbulb, label: 'حل مسئله', desc: 'توانایی تحلیل مشکلات پیچیده و یافتن راه‌حل‌های خلاقانه و عملی' },
+  { icon: Users, label: 'کار تیمی', desc: 'همکاری موثر با اعضای تیم و مشارکت فعال در محیط‌های گروهی' },
+  { icon: Search, label: 'توجه به جزئیات', desc: 'دقت بالا در پیاده‌سازی و بررسی کدها و رابط‌های کاربری' },
   { icon: Zap, label: 'یادگیری سریع', desc: 'توانایی یادگیری سریع تکنولوژی‌ها و فریمورک‌های جدید' },
-  { icon: RefreshCw, label: 'انعطاف‌پذیری', desc: 'سازگاری با تغییرات و شرایط جدید در پروژه‌ها' },
+  { icon: BarChart2, label: 'تفکر تحلیلی', desc: 'بررسی و تحلیل دقیق نیازمندی‌ها و داده‌ها برای تصمیم‌گیری بهتر' },
+  { icon: RefreshCw, label: 'سازگاری', desc: 'انعطاف‌پذیری در برابر تغییرات و شرایط مختلف پروژه' },
+  { icon: Shield, label: 'مسئولیت‌پذیری', desc: 'تعهد کامل به انجام وظایف و تحویل به‌موقع پروژه‌ها' },
+  { icon: GitBranch, label: 'تسلط بر Agile', desc: 'تجربه کار حرفه‌ای در تیم‌های Agile و آشنایی با اسکرام' },
 ]
 
 function FlipCard({
