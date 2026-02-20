@@ -4,18 +4,18 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 const skills = [
-  { name: 'JavaScript', level: 100, color: 'from-yellow-500 to-yellow-600' },
-  { name: 'React.js', level: 100, color: 'from-blue-500 to-cyan-500' },
-  { name: 'React Native', level: 100, color: 'from-blue-600 to-purple-600' },
-  { name: 'Next.js', level: 100, color: 'from-gray-500 to-gray-700' },
-  { name: 'TypeScript', level: 100, color: 'from-blue-600 to-blue-700' },
-  { name: 'HTML5 & CSS3', level: 100, color: 'from-orange-500 to-red-500' },
-  { name: 'Tailwind CSS', level: 100, color: 'from-cyan-500 to-blue-500' },
-  { name: 'Redux Toolkit', level: 100, color: 'from-purple-600 to-purple-800' },
-  { name: 'REST API', level: 100, color: 'from-green-500 to-emerald-600' },
-  { name: 'Git & GitHub', level: 100, color: 'from-gray-600 to-gray-800' },
-  { name: 'Expo', level: 100, color: 'from-indigo-500 to-purple-600' },
-  { name: 'PWA', level: 100, color: 'from-pink-500 to-rose-500' },
+  'JavaScript',
+  'React.js',
+  'React Native',
+  'Next.js',
+  'TypeScript',
+  'HTML5 & CSS3',
+  'Tailwind CSS',
+  'Redux Toolkit',
+  'REST API',
+  'Git & GitHub',
+  'Expo',
+  'PWA',
 ]
 
 const tools = [
@@ -65,33 +65,21 @@ export default function Skills() {
             <span className="gradient-text">💻 مهارت‌های تخصصی</span>
           </motion.h3>
           
-          <div className="grid md:grid-cols-2 gap-6">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.05 }}
-                className="glass-strong rounded-2xl p-6 hover:scale-105 transition-transform"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <span className="font-semibold text-lg">{skill.name}</span>
-                  <span className="text-sm text-gray-400 font-mono">{skill.level}%</span>
-                </div>
-                
-                {/* Progress Bar */}
-                <div className="relative h-3 bg-white/5 rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={inView ? { width: `${skill.level}%` } : {}}
-                    transition={{ duration: 1, delay: 0.5 + index * 0.05, ease: 'easeOut' }}
-                    className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative`}
-                  >
-                    <div className="absolute inset-0 bg-white/20 animate-shimmer" />
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
+          <div className="glass-strong rounded-3xl p-8">
+            <div className="flex flex-wrap gap-3">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={skill}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
+                  whileHover={{ scale: 1.1, rotate: 2 }}
+                  className="px-6 py-3 rounded-full glass border border-persian-500/30 hover:border-persian-500 hover:bg-persian-500/10 transition-all cursor-default font-medium"
+                >
+                  {skill}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
 
