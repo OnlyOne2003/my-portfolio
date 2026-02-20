@@ -49,7 +49,7 @@ const rotations = [
   'rotateX(0deg) rotateY(-90deg)',
   'rotateX(0deg) rotateY(180deg)',
   'rotateX(0deg) rotateY(90deg)',
-  'rotateX(90deg) rotateY(0deg)',
+  'rotateX(-90deg) rotateY(0deg)',
 ]
 
 const CubeFace = ({

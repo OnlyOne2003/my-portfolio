@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="absolute bottom-20 left-20 w-96 h-96 bg-turquoise-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-3xl" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10 pt-20 sm:pt-0">
         <div className="text-center">
           {/* Greeting */}
           <motion.div
@@ -43,27 +43,14 @@ export default function Hero() {
             <span className="text-white">فرانت‌اند</span>
           </motion.h1>
 
-          {/* Description */}
+          {/* Skills Cube */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mb-12 flex flex-col items-center justify-center"
+            className="mb-12 flex items-center justify-center"
           >
-            <div className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-4">
-                <span>ساپورتر</span>
-                <SkillsCube />
-                <span>برای ساخت</span>
-              </div>
-              <div className="text-center">
-                <span className="text-persian-400 font-semibold">رابط‌های کاربری</span>{' '}
-                زیبا و{' '}
-                <span className="text-turquoise-400 font-semibold">واکنش‌گرا</span>{' '}
-                <br className="hidden md:block" />
-                با React، React Native و Next.js
-              </div>
-            </div>
+            <SkillsCube />
           </motion.div>
 
           {/* CTA Buttons */}
@@ -136,7 +123,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1, repeat: Infinity, repeatType: 'reverse', repeatDelay: 0.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-4 sm:bottom-10 left-1/2 -translate-x-1/2"
       >
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
           <div className="w-1 h-2 bg-white/50 rounded-full" />
