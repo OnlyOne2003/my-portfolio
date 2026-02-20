@@ -6,6 +6,16 @@ import { Calendar, Code, Smartphone } from 'lucide-react'
 
 const experiences = [
   {
+    title: 'خانه‌های تاریخی و موزه‌های کاشان',
+    role: 'توسعه‌دهنده فرانت‌اند',
+    period: 'بهمن ۱۴۰۳',
+    type: 'وب اپلیکیشن',
+    tech: ['React', 'Next.js'],
+    description: 'سیستم فروش آنلاین بلیط خانه‌های تاریخی و موزه‌های کاشان. طراحی و پیاده‌سازی رابط کاربری برای خرید بلیط.',
+    icon: Code,
+    color: 'from-amber-500 to-yellow-600',
+  },
+  {
     title: 'دیجی پایه',
     role: 'توسعه‌دهنده فول‌استک',
     period: 'شهریور ۱۴۰۴',
