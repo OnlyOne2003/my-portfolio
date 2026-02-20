@@ -21,12 +21,11 @@ const skills = [
 const tools = [
   'VS Code',
   'Figma',
-  'Postman',
   'Axios',
   'Framer Motion',
   'Responsive Design',
   'Agile / Scrum',
-  'Zustand',
+
 ]
 
 export default function Skills() {
