@@ -81,11 +81,10 @@ export default function About() {
             </div>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               {[
                 { number: '2+', label: 'سال تجربه' },
                 { number: '15+', label: 'پروژه موفق' },
-                { number: '100%', label: 'رضایت مشتری' },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}
