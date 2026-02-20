@@ -2,7 +2,12 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Calendar, MapPin, GraduationCap, Heart } from 'lucide-react'
+import { useState } from 'react'
+import {
+  Calendar, MapPin, GraduationCap, Heart,
+  Users, Lightbulb, Clock, MessageCircle, Zap, RefreshCw,
+  Building2, Briefcase
+} from 'lucide-react'
 
 const personalInfo = [
   { icon: Calendar, label: 'تاریخ تولد', value: '۲۳ شهریور ۱۳۸۲' },
@@ -11,11 +16,71 @@ const personalInfo = [
 ]
 
 const interests = [
-  'طراحی رابط کاربری (UI/UX)',
-  'انیمیشن‌های وب',
-  'تکنولوژی‌های جدید',
-  'توسعه موبایل',
+  { label: 'طراحی رابط کاربری (UI/UX)', emoji: '🎨', desc: 'علاقه به خلق تجربیات بصری زیبا و کاربرپسند' },
+  { label: 'انیمیشن‌های وب', emoji: '✨', desc: 'ایجاد تعاملات پویا و جذاب در وب' },
+  { label: 'تکنولوژی‌های جدید', emoji: '🚀', desc: 'همیشه به دنبال یادگیری و اکتشاف فناوری‌های نوین' },
+  { label: 'توسعه موبایل', emoji: '📱', desc: 'ساخت اپلیکیشن‌های موبایل با React Native' },
+  { label: 'معماری نرم‌افزار', emoji: '🏗️', desc: 'طراحی ساختار کد تمیز و مقیاس‌پذیر' },
+  { label: 'تجربه کاربری', emoji: '💡', desc: 'تمرکز بر رضایت کاربر در هر مرحله از توسعه' },
 ]
+
+const softSkills = [
+  { icon: Users, label: 'کار تیمی', desc: 'تجربه کار در تیم‌های چابک و همکاری موثر با اعضای تیم' },
+  { icon: Lightbulb, label: 'حل مسئله', desc: 'توانایی تحلیل مشکلات پیچیده و یافتن راه‌حل‌های خلاقانه' },
+  { icon: Clock, label: 'مدیریت زمان', desc: 'تحویل پروژه‌ها در موعد مقرر با اولویت‌بندی صحیح وظایف' },
+  { icon: MessageCircle, label: 'ارتباطات', desc: 'برقراری ارتباط موثر با کلاینت‌ها و اعضای تیم' },
+  { icon: Zap, label: 'یادگیری سریع', desc: 'توانایی یادگیری سریع تکنولوژی‌ها و فریمورک‌های جدید' },
+  { icon: RefreshCw, label: 'انعطاف‌پذیری', desc: 'سازگاری با تغییرات و شرایط جدید در پروژه‌ها' },
+]
+
+function FlipCard({
+  front,
+  back,
+  delay = 0,
+  inView,
+}: {
+  front: React.ReactNode
+  back: React.ReactNode
+  delay?: number
+  inView: boolean
+}) {
+  const [flipped, setFlipped] = useState(false)
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={inView ? { opacity: 1, scale: 1 } : {}}
+      transition={{ duration: 0.4, delay }}
+      className="relative h-32 cursor-pointer"
+      style={{ perspective: '1000px' }}
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
+    >
+      <motion.div
+        className="relative w-full h-full"
+        style={{ transformStyle: 'preserve-3d' }}
+        animate={{ rotateY: flipped ? 180 : 0 }}
+        transition={{ duration: 0.5, type: 'spring', stiffness: 150, damping: 20 }}
+      >
+        {/* Front */}
+        <div
+          className="absolute inset-0 rounded-2xl glass-strong flex flex-col items-center justify-center gap-2 p-4"
+          style={{ backfaceVisibility: 'hidden' }}
+        >
+          {front}
+        </div>
+
+        {/* Back */}
+        <div
+          className="absolute inset-0 rounded-2xl bg-gradient-to-br from-persian-500/20 to-turquoise-500/20 border border-persian-500/40 flex items-center justify-center p-4 text-center"
+          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+        >
+          {back}
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
 
 export default function About() {
   const [ref, inView] = useInView({
@@ -39,7 +104,7 @@ export default function About() {
           <div className="w-24 h-1 bg-gradient-to-r from-persian-500 to-turquoise-500 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left: Profile Image & Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -81,10 +146,11 @@ export default function About() {
             </div>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               {[
                 { number: '2+', label: 'سال تجربه' },
                 { number: '15+', label: 'پروژه موفق' },
+                { number: '3+', label: 'تیم همکاری' },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -100,7 +166,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right: Description & Interests */}
+          {/* Right: Description */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -114,44 +180,108 @@ export default function About() {
               </h3>
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
-                  سلام! من یگانه موسوی هستم، توسعه‌دهنده فرانت‌اند با بیش از ۲ سال تجربه در 
-                  ساخت رابط‌های کاربری زیبا و کارآمد. علاقه‌مند به خلق تجربه‌های دیجیتال 
+                  سلام! من یگانه موسوی هستم، توسعه‌دهنده فرانت‌اند با بیش از ۲ سال تجربه در
+                  ساخت رابط‌های کاربری زیبا و کارآمد. علاقه‌مند به خلق تجربه‌های دیجیتال
                   که کاربران رو شگفت‌زده می‌کنه.
                 </p>
                 <p>
-                  تخصص من در React، React Native و Next.js هست و همیشه به دنبال یادگیری 
-                  تکنولوژی‌های جدید و بهبود مهارت‌هام هستم. باور دارم که کد خوب باید هم 
+                  تخصص من در React، React Native و Next.js هست و همیشه به دنبال یادگیری
+                  تکنولوژی‌های جدید و بهبود مهارت‌هام هستم. باور دارم که کد خوب باید هم
                   زیبا باشه و هم کارآمد.
                 </p>
+                <p className="flex items-start gap-2">
+                  <Building2 className="w-5 h-5 text-persian-400 mt-0.5 shrink-0" />
+                  <span>
+                    افتخار همکاری با <strong className="text-persian-300">شهرداری کاشان</strong> رو
+                    داشتم و در این پروژه تجربه‌ای ارزشمند در توسعه سامانه‌های سازمانی
+                    به دست آوردم.
+                  </span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <Briefcase className="w-5 h-5 text-turquoise-400 mt-0.5 shrink-0" />
+                  <span>
+                    علاوه بر کارهای تمام‌وقت، مدتی به عنوان <strong className="text-turquoise-300">فریلنسر</strong> فعالیت
+                    کردم و پروژه‌های متنوعی رو برای کلاینت‌های مختلف پیاده‌سازی کردم که این
+                    تجربه مهارت‌های مدیریت پروژه و ارتباط با مشتری رو در من تقویت کرد.
+                  </span>
+                </p>
                 <p>
-                  در پروژه‌های مختلفی مثل شدآمد، فریمد، شناس، آراتایل و کاج‌سبز فعالیت داشتم 
+                  در پروژه‌های مختلفی مثل شدآمد، فریمد، شناس، آراتایل و کاج‌سبز فعالیت داشتم
                   و در تیم‌های Agile به صورت حرفه‌ای کار کردم.
                 </p>
               </div>
             </div>
-
-            {/* Interests */}
-            <div className="glass-strong rounded-3xl p-8">
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                <Heart className="text-persian-400" size={24} />
-                <span className="gradient-text">علایق من</span>
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {interests.map((interest, index) => (
-                  <motion.span
-                    key={interest}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-                    className="px-4 py-2 rounded-full glass border border-persian-500/30 hover:border-persian-500 hover:bg-persian-500/10 transition-all cursor-default"
-                  >
-                    {interest}
-                  </motion.span>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </div>
+
+        {/* Soft Skills Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-16"
+        >
+          <div className="glass-strong rounded-3xl p-8">
+            <h3 className="text-2xl font-bold mb-2 text-center">
+              <span className="gradient-text">💡 مهارت‌های نرم</span>
+            </h3>
+            <p className="text-center text-gray-400 mb-8 text-sm">روی کارت‌ها هاور کنید</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {softSkills.map((skill, index) => (
+                <FlipCard
+                  key={skill.label}
+                  delay={0.5 + index * 0.1}
+                  inView={inView}
+                  front={
+                    <>
+                      <div className="p-3 rounded-xl bg-persian-500/20">
+                        <skill.icon className="w-6 h-6 text-persian-400" />
+                      </div>
+                      <span className="font-semibold text-center text-sm">{skill.label}</span>
+                    </>
+                  }
+                  back={
+                    <p className="text-sm text-gray-300 leading-relaxed">{skill.desc}</p>
+                  }
+                />
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Interests */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-8"
+        >
+          <div className="glass-strong rounded-3xl p-8">
+            <h3 className="text-2xl font-bold mb-2 text-center flex items-center justify-center gap-2">
+              <Heart className="text-persian-400" size={24} />
+              <span className="gradient-text">علایق من</span>
+            </h3>
+            <p className="text-center text-gray-400 mb-8 text-sm">روی کارت‌ها هاور کنید</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {interests.map((interest, index) => (
+                <FlipCard
+                  key={interest.label}
+                  delay={0.6 + index * 0.1}
+                  inView={inView}
+                  front={
+                    <>
+                      <span className="text-3xl">{interest.emoji}</span>
+                      <span className="font-medium text-center text-sm">{interest.label}</span>
+                    </>
+                  }
+                  back={
+                    <p className="text-sm text-gray-300 leading-relaxed">{interest.desc}</p>
+                  }
+                />
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
