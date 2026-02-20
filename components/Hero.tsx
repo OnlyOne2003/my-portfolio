@@ -53,14 +53,7 @@ export default function Hero() {
             <div className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-4">
                 <span>ساپورتر</span>
-                <motion.div
-                  animate={{ rotateY: 360 }}
-                  transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-                  style={{ perspective: '1200px' }}
-                  className="inline-block"
-                >
-                  <SkillsCube />
-                </motion.div>
+                <SkillsCube />
                 <span>برای ساخت</span>
               </div>
               <div className="text-center">
