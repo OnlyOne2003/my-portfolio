@@ -214,74 +214,75 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Soft Skills Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16"
-        >
-          <div className="glass-strong rounded-3xl p-8">
-            <h3 className="text-2xl font-bold mb-2 text-center">
-              <span className="gradient-text">💡 مهارت‌های نرم</span>
-            </h3>
-            <p className="text-center text-gray-400 mb-8 text-sm">روی کارت‌ها هاور کنید</p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {softSkills.map((skill, index) => (
-                <FlipCard
-                  key={skill.label}
-                  delay={0.5 + index * 0.1}
-                  inView={inView}
-                  front={
-                    <>
-                      <div className="p-3 rounded-xl bg-persian-500/20">
-                        <skill.icon className="w-6 h-6 text-persian-400" />
-                      </div>
-                      <span className="font-semibold text-center text-sm">{skill.label}</span>
-                    </>
-                  }
-                  back={
-                    <p className="text-sm text-gray-300 leading-relaxed">{skill.desc}</p>
-                  }
-                />
-              ))}
+        {/* Soft Skills & Interests side by side */}
+        <div className="mt-16 grid md:grid-cols-2 gap-8 items-start">
+          {/* Soft Skills */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="glass-strong rounded-3xl p-8 h-full">
+              <h3 className="text-2xl font-bold mb-2 text-center">
+                <span className="gradient-text">💡 مهارت‌های نرم</span>
+              </h3>
+              <p className="text-center text-gray-400 mb-8 text-sm">روی کارت‌ها هاور کنید</p>
+              <div className="grid grid-cols-2 gap-4">
+                {softSkills.map((skill, index) => (
+                  <FlipCard
+                    key={skill.label}
+                    delay={0.5 + index * 0.1}
+                    inView={inView}
+                    front={
+                      <>
+                        <div className="p-3 rounded-xl bg-persian-500/20">
+                          <skill.icon className="w-6 h-6 text-persian-400" />
+                        </div>
+                        <span className="font-semibold text-center text-sm">{skill.label}</span>
+                      </>
+                    }
+                    back={
+                      <p className="text-sm text-gray-300 leading-relaxed">{skill.desc}</p>
+                    }
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Interests */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-8"
-        >
-          <div className="glass-strong rounded-3xl p-8">
-            <h3 className="text-2xl font-bold mb-2 text-center flex items-center justify-center gap-2">
-              <Heart className="text-persian-400" size={24} />
-              <span className="gradient-text">علایق من</span>
-            </h3>
-            <p className="text-center text-gray-400 mb-8 text-sm">روی کارت‌ها هاور کنید</p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {interests.map((interest, index) => (
-                <FlipCard
-                  key={interest.label}
-                  delay={0.6 + index * 0.1}
-                  inView={inView}
-                  front={
-                    <>
-                      <span className="text-3xl">{interest.emoji}</span>
-                      <span className="font-medium text-center text-sm">{interest.label}</span>
-                    </>
-                  }
-                  back={
-                    <p className="text-sm text-gray-300 leading-relaxed">{interest.desc}</p>
-                  }
-                />
-              ))}
+          {/* Interests */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <div className="glass-strong rounded-3xl p-8 h-full">
+              <h3 className="text-2xl font-bold mb-2 text-center flex items-center justify-center gap-2">
+                <Heart className="text-persian-400" size={24} />
+                <span className="gradient-text">علایق من</span>
+              </h3>
+              <p className="text-center text-gray-400 mb-8 text-sm">روی کارت‌ها هاور کنید</p>
+              <div className="grid grid-cols-2 gap-4">
+                {interests.map((interest, index) => (
+                  <FlipCard
+                    key={interest.label}
+                    delay={0.6 + index * 0.1}
+                    inView={inView}
+                    front={
+                      <>
+                        <span className="text-3xl">{interest.emoji}</span>
+                        <span className="font-medium text-center text-sm">{interest.label}</span>
+                      </>
+                    }
+                    back={
+                      <p className="text-sm text-gray-300 leading-relaxed">{interest.desc}</p>
+                    }
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
