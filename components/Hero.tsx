@@ -80,7 +80,8 @@ export default function Hero() {
 
             <motion.a
               href="/resume.pdf"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 glass rounded-full font-semibold border border-white/20 hover:border-white/40 transition-colors flex items-center gap-2"
